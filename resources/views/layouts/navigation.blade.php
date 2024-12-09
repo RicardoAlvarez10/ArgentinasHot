@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('vacantes.index') }}">
+                    <a href="#">
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
                 </div>
@@ -24,10 +24,10 @@
                     @endcan
                 @endauth
             </div>
-
+            @auth
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
-                @auth
+     
                     @can('create', App\Models\Vacante::class) 
                         <a class="mr-2 w-7 h-7 bg-indigo-600 hover:bg-indigo-800 rounded-full flex flex-col justify-center items-center text-sm font-extrabold text-white" href="{{ route('notificaciones') }}">
                             {{ auth()->user()->unreadNotifications->count() }}
@@ -60,18 +60,18 @@
                             </form>
                         </x-slot>
                     </x-dropdown>
-                @endauth
+ 
 
                 @guest
                     <!-- Navigation Links -->
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <!-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('login')">
                             {{ __('Iniciar Sesión') }}
                         </x-nav-link>
                         <x-nav-link :href="route('register')">
                             {{ __('Crear Cuenta') }}
                         </x-nav-link>
-                    </div>
+                    </div> -->
                 @endguest
             </div>
 
@@ -86,10 +86,9 @@
             </div>
         </div>
     </div>
-
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        @auth
+
             <div class="pt-2 pb-3 space-y-1">
                 <x-responsive-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
                     {{ __('Mis Vacantes') }}
@@ -130,9 +129,7 @@
                     </form>
                 </div>
             </div>
-        @endauth
-
-        @guest
+        <!-- @guest
             <div class="pt-2 pb-3 space-y-1">
                 <x-responsive-nav-link :href="route('login')">
                     {{ __('Iniciar Sesión') }}
@@ -141,6 +138,7 @@
                     {{ __('Crear Cuenta') }}
                 </x-responsive-nav-link>
             </div>
-        @endguest
+        @endguest -->
     </div>
+@endauth
 </nav>
