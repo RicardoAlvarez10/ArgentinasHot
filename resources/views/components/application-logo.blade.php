@@ -1,4 +1,4 @@
-<h1 class="text-4xl" style="font-family: 'Proxima Nova', sans-serif;">
+<h1 class="text-4xl" style="font-family: 'Proxima Nova', sans-serif;text-align: center; color:white">
     Argentinas<span class="font-extrabold inline-flex items-center" style="color: rgb(34 211 238);">hot<svg width="24px" height="24px" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" class="iconify iconify--noto ml-2" preserveAspectRatio="xMidYMid meet" style="display: inline-block; vertical-align: middle;">
             <radialGradient id="IconifyId17ecdb2904d178eab8626" cx="68.884" cy="124.296" r="70.587" gradientTransform="matrix(-1 -.00434 -.00713 1.6408 131.986 -79.345)" gradientUnits="userSpaceOnUse">
                 <stop offset=".314" stop-color="#ff9800"></stop>

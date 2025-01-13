@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::table('vacantes', function (Blueprint $table) {
             $table->dropForeign('vacantes_salario_id_foreign');
-            $table->dropForeign('vacantes_categoria_id_foreign');
-            $table->dropColumn([ 'salario_id', 'categoria_id', 'empresa', 'ultimo_dia']);
+            $table->dropColumn([ 'salario_id', 'empresa', 'ultimo_dia']);
         });
     }
 
@@ -29,7 +28,6 @@ return new class extends Migration
     {
         Schema::table('vacantes', function (Blueprint $table) {
             $table->foreignId('salario_id')->constrained()->onDelete('cascade');
-            $table->foreignId('categoria_id')->constrained()->onDelete('cascade');
             $table->string('empresa');
             $table->date('ultimo_dia');
         });

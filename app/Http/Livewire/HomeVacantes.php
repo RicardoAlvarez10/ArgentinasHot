@@ -7,9 +7,8 @@ use Livewire\Component;
 
 class HomeVacantes extends Component
 {
-
     public $termino;
-    
+
     protected $listeners = ['terminosBusqueda' => 'buscar'];
 
     public function buscar($termino)
@@ -19,15 +18,22 @@ class HomeVacantes extends Component
 
     public function render()
     {
-        // $vacantes = Vacante::all();
+        // Obtener categorías con vacantes, aplicando el término de búsqueda si existe
+        $categorias = \App\Models\Categoria::with(['vacantes' => function ($query) {
+            $query->when($this->termino, function ($query) {
+                $query->where('titulo', 'LIKE', "%" . $this->termino . "%")
+                      ->orWhere('descripcion', 'LIKE', "%" . $this->termino . "%");
+            })->orderBy('updated_at', 'desc'); // Ordenar por updated_at
+        }])->whereHas('vacantes', function ($query) {
+            $query->when($this->termino, function ($query) {
+                $query->where('titulo', 'LIKE', "%" . $this->termino . "%")
+                      ->orWhere('descripcion', 'LIKE', "%" . $this->termino . "%");
+            });
+        })->get();
 
-        $vacantes = Vacante::when($this->termino, function($query) {
-            $query->where('titulo', 'LIKE', "%" . $this->termino . "%" )->orWhere('descripcion', 'LIKE', "%" . $this->termino . "%");
-        })->orderBy('updated_at', 'desc')->paginate(20);
-        
-
+        // Retornar la vista con las categorías
         return view('livewire.home-vacantes', [
-            'vacantes' => $vacantes
+            'categorias' => $categorias
         ]);
     }
 }

@@ -15,44 +15,69 @@ class CategoriasSeeder extends Seeder
      */
     public function run()
     {
+
         DB::table('categorias')->insert([
-            'categoria' => 'Backend Developer',
+            'categoria' => 'Shappire (800 usd - 700 usd)',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
 
         DB::table('categorias')->insert([
-            'categoria' => 'Front end Developer',
+            'categoria' => 'Diamond Black ($600 usd)',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
 
         DB::table('categorias')->insert([
-            'categoria' => 'Mobile Developer',
+            'categoria' => 'OH ($500 usd)',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
 
         DB::table('categorias')->insert([
-            'categoria' => 'Techlead',
+            'categoria' => 'Diamond red ($400 usd)',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
 
         DB::table('categorias')->insert([
-            'categoria' => 'UX / UI Design',
+            'categoria' => 'AH ($300 usd)',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
 
         DB::table('categorias')->insert([
-            'categoria' => 'Software Architecture',
+            'categoria' => 'Diamond ($200 usd) ',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
 
         DB::table('categorias')->insert([
-            'categoria' => 'Devops',
+            'categoria' => 'Palladium ($150 usd)',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('categorias')->insert([
+            'categoria' => 'Platinum ($100 usd)',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('categorias')->insert([
+            'categoria' => 'Infinite ($100 usd)',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('categorias')->insert([
+            'categoria' => 'Luxe ($50 usd)',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('categorias')->insert([
+            'categoria' => 'Initial ($40 usd)',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);

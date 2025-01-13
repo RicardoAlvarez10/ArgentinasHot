@@ -14,7 +14,7 @@ class CrearVacante extends Component
 {
     public $titulo;
     // public $salario;
-    // public $categoria;
+    public $categoria;
     // public $empresa;
     // public $ultimo_dia;
     public $descripcion;
@@ -26,7 +26,7 @@ class CrearVacante extends Component
     protected $rules = [
         'titulo' => 'required|string',
         // 'salario' => 'required',
-        // 'categoria' => 'required',
+        'categoria' => 'required',
         // 'empresa' => 'required',
         // 'ultimo_dia' => 'required',
         'descripcion' => 'required',
@@ -61,7 +61,7 @@ class CrearVacante extends Component
         Vacante::create([
             'titulo' => $datos['titulo'],
             // 'salario_id' => 1,
-            // 'categoria_id' => NULL,
+            'categoria_id' => $datos['categoria'],
             // 'empresa' => NULL,
             // 'ultimo_dia' => NULL,
             'descripcion' => $datos['descripcion'],

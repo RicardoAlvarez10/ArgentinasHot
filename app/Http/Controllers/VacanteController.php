@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vacante;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
 class VacanteController extends Controller

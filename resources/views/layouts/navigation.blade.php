@@ -1,7 +1,12 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<!-- <nav x-data="{ open: false }" class="bg-white border-b border-gray-100  bg-gradient-to-r from-cyan-100 to-cyan-300"> -->
+<nav 
+    x-data="{ open: false }" 
+    class="bg-white border-b border-gray-100 shadow-2xl fixed top-0 left-0 w-full z-50" 
+    style="background-image: linear-gradient(to left, rgba(13,0,36,1) 0%, rgba(56,9,121,1) 100%, rgba(0,212,255,1) 100%);); box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);">
+
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+        <div class="flex justify-center h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
