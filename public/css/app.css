@@ -850,9 +850,6 @@ select {
 .hidden {
   display: none;
 }
-.aspect-square {
-  aspect-ratio: 1 / 1;
-}
 .h-5 {
   height: 1.25rem;
 }
@@ -870,9 +867,6 @@ select {
 }
 .h-11 {
   height: 2.75rem;
-}
-.h-96 {
-  height: 24rem;
 }
 .h-16 {
   height: 4rem;
@@ -912,9 +906,6 @@ select {
 }
 .w-80 {
   width: 20rem;
-}
-.w-64 {
-  width: 16rem;
 }
 .w-auto {
   width: auto;

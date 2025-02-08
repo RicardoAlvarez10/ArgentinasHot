@@ -28,4 +28,9 @@ Route::get('/candidatos/{vacante}', [CandidatosController::class, 'index'])->nam
 // Notificaciones
 Route::get('/notificaciones', NotificacionController::class)->middleware(['auth', 'verified', 'rol.reclutador'])->name('notificaciones');
 
+
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
+
 require __DIR__.'/auth.php';

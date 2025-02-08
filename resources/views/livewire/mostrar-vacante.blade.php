@@ -13,7 +13,6 @@
             max-width: 900px;
             margin: 40px auto;
             padding: 20px;
-            background: white;
             border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
@@ -27,13 +26,13 @@
 
         .image-container {
             flex-shrink: 0;
-            width: 200px;
-            height: 320px;
+            width: 192px;
+            height: 256px;
         }
 
         .image-container img {
-            width: 100%;
-            height: 100%;
+            width: 192px;
+            height: 256px;
             object-fit: cover;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -52,8 +51,8 @@
         }
 
         .gallery-item {
-            width: 160px;
-            height: 120px;
+            width: 192px;
+            height: 256px;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -61,8 +60,8 @@
         }
 
         .gallery-item img {
-            width: 100%;
-            height: 100%;
+            width: 192px;
+            height: 256px;
             object-fit: cover;
             cursor: pointer;
         }
@@ -79,8 +78,8 @@
             }
 
             .image-container {
-                width: 100%;
-                max-width: 300px;
+                width: 192px;
+                height: 256px;
                 margin: 0 auto;
             }
 
@@ -89,8 +88,8 @@
             }
 
             .gallery-item {
-                width: 130px;
-                height: 100px;
+                width: 192px;
+                height: 256px;
             }
         }
 
@@ -104,26 +103,26 @@
             }
 
             .image-container {
-                width: 90%;
-                max-width: 200px;
+                width: 192px;
+                height: 256px;
                 margin: 0 auto;
             }
 
             .gallery-item {
-                width: 100px;
-                height: 75px;
+                width: 192px;
+                height: 256px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container p-8 bg-white rounded-lg shadow-lg text-center">
+    <div class="container p-8 rounded-lg shadow-lg text-center">
         <h3 class="font-bold text-2xl text-gray-900">{{ $vacante->titulo }}</h3>
         
         <div class="main-content">
             <div class="image-container">
                 <a href="{{ asset('storage/vacantes/' . $vacante->imagen) }}" data-lightbox="galeria" data-title="{{ $vacante->titulo }}">
-                    <img src="{{ asset('storage/vacantes/' . $vacante->imagen) }}" alt="Imagen vacante {{ $vacante->titulo }}" loading="lazy">
+                    <img src="{{ asset('storage/vacantes/' . $vacante->imagen) }}" alt="Imagen vacante {{ $vacante->titulo }}">
                 </a>
             </div>
             
@@ -145,14 +144,7 @@
                 @php $imagenVar = 'imagen' . $i; @endphp
                 @if (!empty($vacante->$imagenVar))
                 <div class="gallery-item relative overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out flex">
-  <div style="width: 50%; height: auto;">
-    <a href="{{ asset('storage/vacantes/' . $vacante->$imagenVar) }}" data-lightbox="galeria" data-title="{{ $vacante->titulo }}">
-      <img src="{{ asset('storage/vacantes/' . $vacante->$imagenVar) }}"
-           alt="Imagen extra {{ $vacante->titulo }}"
-           class="w-full h-full object-cover" loading="lazy">
-    </a>
-  </div>
-  <div style="width: 50%; height: auto;">
+  <div style="width: 100%; height: auto;">
     <a href="{{ asset('storage/vacantes/' . $vacante->$imagenVar) }}" data-lightbox="galeria" data-title="{{ $vacante->titulo }}">
       <img src="{{ asset('storage/vacantes/' . $vacante->$imagenVar) }}"
            alt="Imagen extra {{ $vacante->titulo }}"
