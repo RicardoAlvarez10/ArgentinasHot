@@ -15,6 +15,7 @@
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* background-image: linear-gradient(to left, rgba(13,0,36,1) 0%, rgba(56,9,121,1) 100%, rgba(0,212,255,1) 100%); */
         }
 
         .main-content {
@@ -22,6 +23,8 @@
             align-items: flex-start;
             gap: 20px;
             flex-wrap: wrap;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ddd;
         }
 
         .image-container {
@@ -40,6 +43,22 @@
 
         .description {
             flex: 1;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .gallery-title {
+            margin-top: 30px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            color: var(--color-primary);
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+            width: max-content;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .gallery {
@@ -70,7 +89,6 @@
             transform: scale(1.05);
         }
 
-        /* Media Queries para pantallas pequeñas */
         @media (max-width: 768px) {
             .main-content {
                 flex-direction: column;
@@ -78,46 +96,21 @@
             }
 
             .image-container {
-                width: 192px;
-                height: 256px;
                 margin: 0 auto;
             }
 
             .description {
                 text-align: center;
             }
-
-            .gallery-item {
-                width: 192px;
-                height: 256px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 15px;
-            }
-
-            .main-content {
-                gap: 10px;
-            }
-
-            .image-container {
-                width: 192px;
-                height: 256px;
-                margin: 0 auto;
-            }
-
-            .gallery-item {
-                width: 192px;
-                height: 256px;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="container p-8 rounded-lg shadow-lg text-center">
-        <h3 class="font-bold text-2xl text-gray-900">{{ $vacante->titulo }}</h3>
+    <div class="container">
+        <div class="mb-4">
+            <h3 class="font-bold text-2xl text-white">{{ $vacante->titulo }}</h3>
+        </div>
+
         
         <div class="main-content">
             <div class="image-container">
@@ -131,29 +124,17 @@
             </div>
         </div>
 
+        <h3 class="gallery-title">Galería de Imágenes</h3>
         
-        <!-- @foreach (range(1, 5) as $i)
-    @php 
-        $imagenVar = 'imagen' . $i; 
-    @endphp
-    <p>{{ $imagenVar }}: {{ $vacante->$imagenVar }}</p>
-@endforeach -->
-
         <div class="gallery">
             @foreach (range(1, 5) as $i)
                 @php $imagenVar = 'imagen' . $i; @endphp
                 @if (!empty($vacante->$imagenVar))
-                <div class="gallery-item relative overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out flex">
-  <div style="width: 100%; height: auto;">
-    <a href="{{ asset('storage/vacantes/' . $vacante->$imagenVar) }}" data-lightbox="galeria" data-title="{{ $vacante->titulo }}">
-      <img src="{{ asset('storage/vacantes/' . $vacante->$imagenVar) }}"
-           alt="Imagen extra {{ $vacante->titulo }}"
-           class="w-full h-full object-cover" loading="lazy">
-    </a>
-  </div>
-</div>
-
-
+                <div class="gallery-item">
+                    <a href="{{ asset('storage/vacantes/' . $vacante->$imagenVar) }}" data-lightbox="galeria" data-title="{{ $vacante->titulo }}">
+                        <img src="{{ asset('storage/vacantes/' . $vacante->$imagenVar) }}" alt="Imagen extra {{ $vacante->titulo }}" loading="lazy">
+                    </a>
+                </div>
                 @endif
             @endforeach
         </div>
@@ -164,7 +145,7 @@
             <livewire:postular-vacante :vacante="$vacante" />
         </div>
     @endcannot
-
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 </body>
 </html>
