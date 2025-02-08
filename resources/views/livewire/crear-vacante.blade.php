@@ -82,6 +82,122 @@
         @enderror
     </div>
 
+
+    <div>
+        <x-label for="imagen1" :value="__('Imagen1')" />
+        <x-input 
+            id="imagen1" 
+            class="block mt-1 w-full" 
+            type="file" 
+            wire:model="imagen1"
+            accept="image/*"
+        />
+
+        <div class="my-5 w-80">
+            @if($imagen1) 
+                Imagen:
+                <img src="{{ $imagen1->temporaryUrl() }}" >
+            @endif
+        </div>
+
+        @error('imagen1')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
+    </div>
+
+
+    <div>
+        <x-label for="imagen2" :value="__('Imagen2')" />
+        <x-input 
+            id="imagen2" 
+            class="block mt-1 w-full" 
+            type="file" 
+            wire:model="imagen2"
+            accept="image/*"
+        />
+
+        <div class="my-5 w-80">
+            @if($imagen2) 
+                Imagen:
+                <img src="{{ $imagen2->temporaryUrl() }}" >
+            @endif
+        </div>
+
+        @error('imagen2')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
+    </div>
+
+
+    <div>
+        <x-label for="imagen3" :value="__('Imagen3')" />
+        <x-input 
+            id="imagen3" 
+            class="block mt-1 w-full" 
+            type="file" 
+            wire:model="imagen3"
+            accept="image/*"
+        />
+
+        <div class="my-5 w-80">
+            @if($imagen3) 
+                Imagen:
+                <img src="{{ $imagen3->temporaryUrl() }}" >
+            @endif
+        </div>
+
+        @error('imagen3')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
+    </div>
+
+
+    <div>
+        <x-label for="imagen4" :value="__('Imagen4')" />
+        <x-input 
+            id="imagen4" 
+            class="block mt-1 w-full" 
+            type="file" 
+            wire:model="imagen4"
+            accept="image/*"
+        />
+
+        <div class="my-5 w-80">
+            @if($imagen4) 
+                Imagen:
+                <img src="{{ $imagen4->temporaryUrl() }}" >
+            @endif
+        </div>
+
+        @error('imagen4')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
+    </div>
+
+
+    <div>
+        <x-label for="imagen5" :value="__('Imagen5')" />
+        <x-input 
+            id="imagen5" 
+            class="block mt-1 w-full" 
+            type="file" 
+            wire:model="imagen5"
+            accept="image/*"
+        />
+
+        <div class="my-5 w-80">
+            @if($imagen5) 
+                Imagen:
+                <img src="{{ $imagen5->temporaryUrl() }}" >
+            @endif
+        </div>
+
+        @error('imagen5')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
+    </div>
+
+
     <x-button>
         Crear Post
     </x-button>

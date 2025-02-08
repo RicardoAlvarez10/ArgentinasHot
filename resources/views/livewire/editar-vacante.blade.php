@@ -15,7 +15,6 @@
         @enderror
     </div>
 
-
     <div>
         <x-label for="categoria" :value="__('Categoría')" />
         <select
@@ -61,35 +60,229 @@
     </div>
 
     <div>
-        <x-label for="imagen" :value="__('Imagen')" />
-        <x-input 
-            id="imagen" 
-            class="block mt-1 w-full" 
-            type="file" 
-            wire:model="imagen_nueva"
-            accept="image/*"
-        />
-        
-        <div class="my-5 w-80">
+    <x-label for="imagen" :value="__('PERFIL')" />
+    <x-input 
+        id="imagen" 
+        class="block mt-1 w-full" 
+        type="file" 
+        wire:model="imagen_nueva"
+        accept="image/*"
+    />
+
+    <div class="flex my-5 w-full">
+        <div class="w-1/2 flex flex-col items-center">
             <x-label :value="__('Imagen Actual')" />
-
-            <img src="{{ asset('storage/vacantes/' . $imagen) }}" alt="{{ 'Imagen Vacante ' . $titulo }}">
+            <div class="w-full h-48 flex justify-center items-center border border-gray-300 rounded-md overflow-hidden">
+                <img src="{{ asset('storage/vacantes/' . $imagen) }}" 
+                    alt="{{ 'Imagen Vacante ' . $titulo }}" 
+                    class="w-full h-full object-cover">
+            </div>
         </div>
 
-        <div class="my-5 w-80">
-            @if($imagen_nueva) 
-                Imagen Nueva:
-                <img src="{{ $imagen_nueva->temporaryUrl() }}" >
-            @endif
-        </div>
+        @if($imagen_nueva) 
+            <div class="w-1/2 flex flex-col items-center">
+                <x-label :value="__('Imagen Nueva')" />
+                <div class="w-full h-48 flex justify-center items-center border border-gray-300 rounded-md overflow-hidden">
+                    <img src="{{ $imagen_nueva->temporaryUrl() }}" 
+                        class="w-full h-full object-cover">
+                </div>
+            </div>
+        @endif
+    </div>
 
         @error('imagen_nueva')
             <livewire:mostrar-alerta :message="$message" />
         @enderror
     </div>
 
+
+    <div>
+    <x-label for="imagen1" :value="__('Imagen 1')" />
+    <x-input 
+        id="imagen1" 
+        class="block mt-1 w-full" 
+        type="file" 
+        wire:model="imagen1_nueva"
+        accept="image/*"
+    />
+
+    <div class="flex my-5 w-full">
+        <div class="w-1/2 flex flex-col items-center">
+            <x-label :value="__('imagen1 Actual')" />
+            <div class="w-full h-48 flex justify-center items-center border border-gray-300 rounded-md overflow-hidden">
+                <img src="{{ asset('storage/vacantes/' . $imagen1) }}" 
+                    alt="{{ 'imagen1 Vacante ' . $titulo }}" 
+                    class="w-full h-full object-cover">
+            </div>
+        </div>
+
+        @if($imagen1_nueva) 
+            <div class="w-1/2 flex flex-col items-center">
+                <x-label :value="__('imagen1 Nueva')" />
+                <div class="w-full h-48 flex justify-center items-center border border-gray-300 rounded-md overflow-hidden">
+                    <img src="{{ $imagen1_nueva->temporaryUrl() }}" 
+                        class="w-full h-full object-cover">
+                </div>
+            </div>
+        @endif
+    </div>
+
+        @error('imagen1_nueva')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
+    </div>
+
+
+    <div>
+    <x-label for="imagen2" :value="__('Imagen2')" />
+    <x-input 
+        id="imagen2" 
+        class="block mt-1 w-full" 
+        type="file" 
+        wire:model="imagen2_nueva"
+        accept="image/*"
+    />
+
+    <div class="flex my-5 w-full">
+        <div class="w-1/2 flex flex-col items-center">
+            <x-label :value="__('imagen2 Actual')" />
+            <div class="w-full h-48 flex justify-center items-center border border-gray-300 rounded-md overflow-hidden">
+                <img src="{{ asset('storage/vacantes/' . $imagen2) }}" 
+                    alt="{{ 'imagen2 Vacante ' . $titulo }}" 
+                    class="w-full h-full object-cover">
+            </div>
+        </div>
+
+        @if($imagen2_nueva) 
+            <div class="w-1/2 flex flex-col items-center">
+                <x-label :value="__('imagen2 Nueva')" />
+                <div class="w-full h-48 flex justify-center items-center border border-gray-300 rounded-md overflow-hidden">
+                    <img src="{{ $imagen2_nueva->temporaryUrl() }}" 
+                        class="w-full h-full object-cover">
+                </div>
+            </div>
+        @endif
+    </div>
+
+        @error('imagen2_nueva')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
+    </div>
+
+
+
+    <div>
+    <x-label for="imagen3" :value="__('imagen3')" />
+    <x-input 
+        id="imagen3" 
+        class="block mt-1 w-full" 
+        type="file" 
+        wire:model="imagen3_nueva"
+        accept="image/*"
+    />
+
+    <div class="flex my-5 w-full">
+        <div class="w-1/2 flex flex-col items-center">
+            <x-label :value="__('imagen3 Actual')" />
+            <div class="w-full h-48 flex justify-center items-center border border-gray-300 rounded-md overflow-hidden">
+                <img src="{{ asset('storage/vacantes/' . $imagen3) }}" 
+                    alt="{{ 'imagen3 Vacante ' . $titulo }}" 
+                    class="w-full h-full object-cover">
+            </div>
+        </div>
+
+        @if($imagen3_nueva) 
+            <div class="w-1/2 flex flex-col items-center">
+                <x-label :value="__('imagen3 Nueva')" />
+                <div class="w-full h-48 flex justify-center items-center border border-gray-300 rounded-md overflow-hidden">
+                    <img src="{{ $imagen3_nueva->temporaryUrl() }}" 
+                        class="w-full h-full object-cover">
+                </div>
+            </div>
+        @endif
+    </div>
+
+        @error('imagen3_nueva')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
+    </div>
+
+
+    <div>
+    <x-label for="imagen4" :value="__('imagen4')" />
+    <x-input 
+        id="imagen4" 
+        class="block mt-1 w-full" 
+        type="file" 
+        wire:model="imagen4_nueva"
+        accept="image/*"
+    />
+
+    <div class="flex my-5 w-full">
+        <div class="w-1/2 flex flex-col items-center">
+            <x-label :value="__('imagen4 Actual')" />
+            <div class="w-full h-48 flex justify-center items-center border border-gray-300 rounded-md overflow-hidden">
+                <img src="{{ asset('storage/vacantes/' . $imagen4) }}" 
+                    alt="{{ 'imagen4 Vacante ' . $titulo }}" 
+                    class="w-full h-full object-cover">
+            </div>
+        </div>
+
+        @if($imagen4_nueva) 
+            <div class="w-1/2 flex flex-col items-center">
+                <x-label :value="__('imagen4 Nueva')" />
+                <div class="w-full h-48 flex justify-center items-center border border-gray-300 rounded-md overflow-hidden">
+                    <img src="{{ $imagen4_nueva->temporaryUrl() }}" 
+                        class="w-full h-full object-cover">
+                </div>
+            </div>
+        @endif
+    </div>
+
+        @error('imagen4_nueva')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
+    </div>
+
+
+    <div>
+    <x-label for="imagen5" :value="__('imagen5')" />
+    <x-input 
+        id="imagen5" 
+        class="block mt-1 w-full" 
+        type="file" 
+        wire:model="imagen5_nueva"
+        accept="image/*"
+    />
+
+    <div class="flex my-5 w-full">
+        <div class="w-1/2 flex flex-col items-center">
+            <x-label :value="__('imagen5 Actual')" />
+            <div class="w-full h-48 flex justify-center items-center border border-gray-300 rounded-md overflow-hidden">
+                <img src="{{ asset('storage/vacantes/' . $imagen5) }}" 
+                    alt="{{ 'imagen5 Vacante ' . $titulo }}" 
+                    class="w-full h-full object-cover">
+            </div>
+        </div>
+
+        @if($imagen5_nueva) 
+            <div class="w-1/2 flex flex-col items-center">
+                <x-label :value="__('imagen5 Nueva')" />
+                <div class="w-full h-48 flex justify-center items-center border border-gray-300 rounded-md overflow-hidden">
+                    <img src="{{ $imagen5_nueva->temporaryUrl() }}" 
+                        class="w-full h-full object-cover">
+                </div>
+            </div>
+        @endif
+    </div>
+
+        @error('imagen5_nueva')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
+    </div>
+
+
     <x-button>
         Guardar Cambios
     </x-button>
-
 </form>

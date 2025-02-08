@@ -1,24 +1,169 @@
-<div class="p-8 bg-white rounded-lg shadow-lg"> 
-    <div class="mb-6 text-center">
-        <h3 class="font-bold text-2xl md:text-3xl text-gray-900">
-            {{ $vacante->titulo }}
-        </h3>
-    </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #4A4A4A;
+            --color-overlay: rgba(0, 0, 0, 0.8);
+            --color-overlay-hover: rgba(0, 0, 0, 0.9);
+        }
 
-    <div class="flex flex-col md:flex-row gap-8">
-        <div class="flex-1">
-            <img 
-                class="w-full h-[350px] md:h-[200] object-cover rounded-lg shadow-md"
-                src="{{ asset('storage/vacantes/' . $vacante->imagen ) }}"
-                alt="{{ 'Imagen vacante ' . $vacante->titulo }}"
-            >
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .image-container {
+            flex-shrink: 0;
+            width: 200px;
+            height: 320px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .description {
+            flex: 1;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            width: 160px;
+            height: 120px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Media Queries para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .image-container {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .description {
+                text-align: center;
+            }
+
+            .gallery-item {
+                width: 130px;
+                height: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+
+            .main-content {
+                gap: 10px;
+            }
+
+            .image-container {
+                width: 90%;
+                max-width: 200px;
+                margin: 0 auto;
+            }
+
+            .gallery-item {
+                width: 100px;
+                height: 75px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container p-8 bg-white rounded-lg shadow-lg text-center">
+        <h3 class="font-bold text-2xl text-gray-900">{{ $vacante->titulo }}</h3>
+        
+        <div class="main-content">
+            <div class="image-container">
+                <a href="{{ asset('storage/vacantes/' . $vacante->imagen) }}" data-lightbox="galeria" data-title="{{ $vacante->titulo }}">
+                    <img src="{{ asset('storage/vacantes/' . $vacante->imagen) }}" alt="Imagen vacante {{ $vacante->titulo }}" loading="lazy">
+                </a>
+            </div>
+            
+            <div class="description">
+                <p class="text-gray-700 leading-relaxed">{{ $vacante->descripcion }}</p>
+            </div>
         </div>
 
-        <div class="flex-1 flex flex-col justify-between">
-            <h2 class="text-xl md:text-2xl font-bold mb-4 text-gray-800">Descripción</h2>
-            <p class="text-gray-700 leading-relaxed flex-grow">
-                {{ $vacante->descripcion }}
-            </p>
+        
+        <!-- @foreach (range(1, 5) as $i)
+    @php 
+        $imagenVar = 'imagen' . $i; 
+    @endphp
+    <p>{{ $imagenVar }}: {{ $vacante->$imagenVar }}</p>
+@endforeach -->
+
+        <div class="gallery">
+            @foreach (range(1, 5) as $i)
+                @php $imagenVar = 'imagen' . $i; @endphp
+                @if (!empty($vacante->$imagenVar))
+                <div class="gallery-item relative overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out flex">
+  <div style="width: 50%; height: auto;">
+    <a href="{{ asset('storage/vacantes/' . $vacante->$imagenVar) }}" data-lightbox="galeria" data-title="{{ $vacante->titulo }}">
+      <img src="{{ asset('storage/vacantes/' . $vacante->$imagenVar) }}"
+           alt="Imagen extra {{ $vacante->titulo }}"
+           class="w-full h-full object-cover" loading="lazy">
+    </a>
+  </div>
+  <div style="width: 50%; height: auto;">
+    <a href="{{ asset('storage/vacantes/' . $vacante->$imagenVar) }}" data-lightbox="galeria" data-title="{{ $vacante->titulo }}">
+      <img src="{{ asset('storage/vacantes/' . $vacante->$imagenVar) }}"
+           alt="Imagen extra {{ $vacante->titulo }}"
+           class="w-full h-full object-cover" loading="lazy">
+    </a>
+  </div>
+</div>
+
+
+                @endif
+            @endforeach
         </div>
     </div>
 
@@ -27,4 +172,7 @@
             <livewire:postular-vacante :vacante="$vacante" />
         </div>
     @endcannot
-</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+</body>
+</html>

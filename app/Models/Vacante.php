@@ -16,6 +16,11 @@ class Vacante extends Model
         'categoria_id',
         'descripcion',
         'imagen',
+        'imagen1',
+        'imagen2',
+        'imagen3',
+        'imagen4',
+        'imagen5',
         'user_id',
         'WhatsApp_Number'
     ];
