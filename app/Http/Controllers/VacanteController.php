@@ -47,6 +47,11 @@ class VacanteController extends Controller
         ]);
     }
 
+    public function publish()
+    {
+        return view('vacantes.publish');
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

@@ -23,6 +23,12 @@ class RegisteredUserController extends Controller
         return view('auth.register');
     }
 
+    public function publish()
+    {
+        return view('auth.publish');
+    }
+
+
     /**
      * Handle an incoming registration request.
      *

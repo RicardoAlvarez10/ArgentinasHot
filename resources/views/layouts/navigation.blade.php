@@ -10,9 +10,16 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                <a href="{{ url('/') }}">
+                    <a href="/">
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
+                    <div class="order-2 sm:order-1 sm:absolute sm:left-4">
+                    <a href="{{ route('vacantes.publish') }}" 
+                    class="text-white font-semibold bg-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-800 transition duration-200">
+                        Publicar
+                    </a>
+
+            </div>
                 </div>
 
                 @auth
@@ -69,14 +76,14 @@
 
                 @guest
                     <!-- Navigation Links -->
-                    <!-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('login')">
                             {{ __('Iniciar Sesión') }}
                         </x-nav-link>
                         <x-nav-link :href="route('register')">
                             {{ __('Crear Cuenta') }}
                         </x-nav-link>
-                    </div> -->
+                    </div>
                 @endguest
             </div>
 
