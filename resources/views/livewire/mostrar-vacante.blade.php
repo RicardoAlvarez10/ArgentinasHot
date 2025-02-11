@@ -141,9 +141,10 @@
     </div>
 
     @cannot('create', App\Models\Vacante::class)
-        <div class="mt-8 flex flex-col items-center space-y-6">
-            <livewire:postular-vacante :vacante="$vacante" />
-        </div>
+    <!-- Componente Livewire -->
+            <div class="mt-8 flex flex-col items-center space-y-6">
+                <livewire:postular-vacante :vacante="$vacante" />
+            </div>
     @endcannot
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
