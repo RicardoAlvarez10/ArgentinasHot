@@ -13,7 +13,7 @@
                     <a href="/">
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
-                    <div class="order-2 sm:order-1 sm:absolute sm:left-4">
+                    <div>
                     <a href="{{ route('vacantes.publish') }}" 
                     class="text-white font-semibold bg-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-800 transition duration-200">
                         Publicar

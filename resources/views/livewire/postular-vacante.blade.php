@@ -17,7 +17,7 @@
         </p>
     @else
         <div class="text-center">
-            <a href="https://wa.me/54{{ $vacante->WhatsApp_Number }}/?text=Hola%2C%20me%20gustaría%20obtener%20más%20información." 
+            <a href="https://wa.me/54{{ $vacante->WhatsApp_Number }}/?text=Hola%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F%2C%20te%20vi%20en%20argentinashot.com%20Deseo%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios%20y%20tarifas%2C%20muchas%20gracias."
                target="_blank" 
                class="inline-flex items-center bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded transition">
                 <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
