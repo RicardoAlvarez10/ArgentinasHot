@@ -175,7 +175,7 @@
         <div class="video-container">
             <a href="{{ asset('storage/Videos/' . $vacante->video) }}" data-lightbox="galeria" data-title="{{ $vacante->titulo }}">
                 <video controls>
-                    <source src="{{ asset('storage/Videos/' . $vacante->video) }}" type="video/mp4">
+                    <source src="{{ asset('storage/videos/' . $vacante->video) }}" type="video/mp4">
                     Tu navegador no soporta el formato de video.
                 </video>
             </a>
