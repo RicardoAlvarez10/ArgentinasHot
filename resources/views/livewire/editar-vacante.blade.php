@@ -282,6 +282,34 @@
     </div>
 
 
+
+    <div>
+        <x-label for="video" :value="__('Video Actual')" />
+        <div class="w-full h-48 flex justify-center items-center border border-gray-300 rounded-md overflow-hidden">
+            <video class="w-full h-full" controls>
+                <source src="{{ asset('storage/videos/' . $video) }}" type="video/mp4">
+                Tu navegador no soporta la reproducción de videos.
+            </video>
+        </div>
+    </div>
+
+    <div>
+        <x-label for="video_nuevo" :value="__('Seleccionar Nuevo Video')" />
+        <x-input 
+            id="video_nuevo" 
+            class="block mt-1 w-full" 
+            type="file" 
+            wire:model="video_nuevo" 
+            accept="video/*"
+        />
+    </div>
+
+    @error('video_nuevo')
+        <livewire:mostrar-alerta :message="$message" />
+    @enderror
+
+
+
     <x-button>
         Guardar Cambios
     </x-button>

@@ -25,6 +25,7 @@ class CrearVacante extends Component
     public $imagen3;
     public $imagen4;
     public $imagen5;
+    public $video;
 
     use WithFileUploads;
 
@@ -41,6 +42,7 @@ class CrearVacante extends Component
         'imagen3' => 'required|image|max:10240',
         'imagen4' => 'required|image|max:10240',
         'imagen5' => 'required|image|max:10240',
+        'video' => 'nullable|mimes:mp4,mov,avi,wmv|max:50000', 
         'WhatsApp_Number' => 'required',
     ];
 
@@ -95,6 +97,13 @@ class CrearVacante extends Component
         $datos['imagen4'] = $nombreImagen4;
         $datos['imagen5'] = $nombreImagen5;
 
+
+        if ($this->video) {
+            $nombreVideo = Str::uuid() . "." . $this->video->extension();
+            $this->video->storeAs('public/videos', $nombreVideo);
+            $datos['video'] = $nombreVideo;
+        }
+
         // dd($nombre_imagen);
 
         // Crear la Vacante
@@ -111,6 +120,7 @@ class CrearVacante extends Component
             'imagen3' => $datos['imagen3'],
             'imagen4' => $datos['imagen4'],
             'imagen5' => $datos['imagen5'],
+            'video' => $datos['video'] ?? null,
             'user_id' => auth()->user()->id,
             'WhatsApp_Number' => $datos['WhatsApp_Number'],
         ]);

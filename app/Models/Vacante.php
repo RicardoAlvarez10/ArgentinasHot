@@ -21,6 +21,7 @@ class Vacante extends Model
         'imagen3',
         'imagen4',
         'imagen5',
+        'video', 
         'user_id',
         'WhatsApp_Number'
     ];

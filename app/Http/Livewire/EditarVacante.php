@@ -13,6 +13,8 @@ use Illuminate\Support\Str;
 
 class EditarVacante extends Component
 {
+    use WithFileUploads;
+
     public $vacante_id;
     public $titulo;
     // public $salario;
@@ -32,6 +34,8 @@ class EditarVacante extends Component
     public $imagen4_nueva;
     public $imagen5;
     public $imagen5_nueva;
+    public $video;
+    public $video_nuevo;
     public $WhatsApp_Number;
 
     use WithFileUploads;
@@ -49,6 +53,7 @@ class EditarVacante extends Component
         'imagen2_nueva' => 'nullable|image|max:10240',
         'imagen4_nueva' => 'nullable|image|max:10240',
         'imagen5_nueva' => 'nullable|image|max:10240',
+        'video_nuevo' => 'nullable|mimes:mp4,avi,mov,wmv|max:51200', // 50MB máximo
         'WhatsApp_Number' => 'required',
     ];
 
@@ -67,6 +72,7 @@ class EditarVacante extends Component
         $this->imagen3 = $vacante->imagen3;
         $this->imagen4 = $vacante->imagen4;
         $this->imagen5 = $vacante->imagen5;
+        $this->video = $vacante->video;
         $this->WhatsApp_Number = $vacante->WhatsApp_Number;
         
     }
@@ -197,6 +203,14 @@ class EditarVacante extends Component
             $datos['imagen5'] = $nombreimagen5;
         }
 
+
+        if ($this->video_nuevo) {
+            $nombreVideo = Str::uuid() . "." . $this->video_nuevo->extension();
+            $videoPath = $this->video_nuevo->storeAs('public/vacantes', $nombreVideo);
+            $datos['video'] = str_replace('public/vacantes/', '', $videoPath);
+        }
+
+
         // Encontrar la vacante a editar
         $vacante = Vacante::find($this->vacante_id);
 
@@ -213,6 +227,7 @@ class EditarVacante extends Component
         $vacante->imagen3 = $datos['imagen3'] ?? $vacante->imagen3;
         $vacante->imagen4 = $datos['imagen4'] ?? $vacante->imagen4;
         $vacante->imagen5 = $datos['imagen5'] ?? $vacante->imagen5;
+        $vacante->video = $datos['video'] ?? $vacante->video;
         $vacante->WhatsApp_Number = $datos['WhatsApp_Number'];
 
         // Guardar la vacante

@@ -811,9 +811,6 @@ select {
 .mb-6 {
   margin-bottom: 1.5rem;
 }
-.ml-2 {
-  margin-left: 0.5rem;
-}
 .mt-20 {
   margin-top: 5rem;
 }
@@ -822,6 +819,9 @@ select {
 }
 .mb-1 {
   margin-bottom: 0.25rem;
+}
+.ml-2 {
+  margin-left: 0.5rem;
 }
 .ml-4 {
   margin-left: 1rem;

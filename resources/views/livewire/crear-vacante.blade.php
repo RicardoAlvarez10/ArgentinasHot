@@ -42,7 +42,7 @@
             class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full h-11"
         ></textarea>
 
-        @error('descripcion')
+        @error('WhatsApp_Number')
             <livewire:mostrar-alerta :message="$message" />
         @enderror
     </div>
@@ -196,6 +196,34 @@
             <livewire:mostrar-alerta :message="$message" />
         @enderror
     </div>
+
+
+    <div>
+    <x-label for="video" :value="__('Video')" />
+    <x-input 
+        id="video" 
+        class="block mt-1 w-full" 
+        type="file" 
+        wire:model="video"
+        accept="video/*"
+    />
+
+        <div class="my-5 w-80">
+            @if($video) 
+                Video:
+                <video controls class="w-full">
+                    <source src="{{ $video->temporaryUrl() }}" type="video/mp4">
+                    Tu navegador no soporta la reproducción de videos.
+                </video>
+            @endif
+        </div>
+
+        @error('video')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
+    </div>
+
+
 
 
     <x-button>
